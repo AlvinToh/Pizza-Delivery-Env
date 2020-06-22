@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  style="
+    background-color: #3366ff;
+    width: 400px;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+  "
+>
+  <h2 style="color: white; text-align: center;">Admin Login</h2>
+  <form method="post" action="/adminauthenticate/">
+    {% csrf_token %}
+    <input
+      style="margin-bottom: 15px;"
+      type="text"
+      class="form-control"
+      name="username"
+      placeholder="username"
+    />
+    <input
+      style="margin-bottom: 10px;"
+      type="password"
+      class="form-control"
+      name="password"
+      placeholder="password"
+    />
+    <input
+      style="display: block; margin: auto;"
+      type="submit"
+      class="btn btn-success"
+      name=""
+    />
+  </form>
+</div>
+
+{% for message in messages %}
+<p style="text-align: center; color: red; margin-top: 15px;">{{ message }}</p>
+{% endfor %} {% endblock %}
